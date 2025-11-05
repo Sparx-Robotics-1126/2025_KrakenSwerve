@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
-
 import org.team1126.lib.logging.LoggedRobot;
 
 /**

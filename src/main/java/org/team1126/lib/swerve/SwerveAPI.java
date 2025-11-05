@@ -25,7 +25,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
-
 import org.team1126.lib.math.Math2;
 import org.team1126.lib.math.geometry.TimestampedPose;
 import org.team1126.lib.math.geometry.VisionMeasurement;

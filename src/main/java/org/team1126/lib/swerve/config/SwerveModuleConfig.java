@@ -3,11 +3,10 @@ package org.team1126.lib.swerve.config;
 import edu.wpi.first.math.geometry.Translation2d;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.team1126.lib.swerve.SwerveAPI;
 import org.team1126.lib.swerve.hardware.SwerveEncoders;
-import org.team1126.lib.swerve.hardware.SwerveMotors;
 import org.team1126.lib.swerve.hardware.SwerveEncoders.SwerveEncoder;
+import org.team1126.lib.swerve.hardware.SwerveMotors;
 import org.team1126.lib.swerve.hardware.SwerveMotors.SwerveMotor;
 
 /**

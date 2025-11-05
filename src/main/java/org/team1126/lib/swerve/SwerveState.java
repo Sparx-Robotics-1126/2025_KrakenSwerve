@@ -10,7 +10,6 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.team1126.lib.math.geometry.TimestampedPose;
 
 /**

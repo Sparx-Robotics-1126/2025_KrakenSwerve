@@ -2,18 +2,17 @@ package org.team1126.robot;
 
 import static edu.wpi.first.wpilibj2.command.Commands.*;
 
+import edu.wpi.first.epilogue.Logged;
+import edu.wpi.first.epilogue.NotLogged;
+import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import org.team1126.lib.logging.LoggedRobot;
 import org.team1126.lib.logging.Profiler;
 import org.team1126.lib.util.DisableWatchdog;
 import org.team1126.robot.commands.Autos;
 import org.team1126.robot.commands.Routines;
 import org.team1126.robot.subsystems.Swerve;
-
-import edu.wpi.first.epilogue.Logged;
-import edu.wpi.first.epilogue.NotLogged;
-import edu.wpi.first.wpilibj.RobotController;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 @Logged
 public final class Robot extends LoggedRobot {

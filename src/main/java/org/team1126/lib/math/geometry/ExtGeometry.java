@@ -1,7 +1,6 @@
 package org.team1126.lib.math.geometry;
 
 import java.util.function.Supplier;
-
 import org.team1126.lib.math.FieldInfo;
 import org.team1126.lib.tunable.TunableTable;
 import org.team1126.lib.tunable.Tunables.Tunable;

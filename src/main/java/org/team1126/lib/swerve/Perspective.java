@@ -1,9 +1,8 @@
 package org.team1126.lib.swerve;
 
-import org.team1126.lib.util.Alliance;
-
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import org.team1126.lib.util.Alliance;
 
 /**
  * Describes a forward (X+ direction) perspective for {@link ChassisSpeeds}.

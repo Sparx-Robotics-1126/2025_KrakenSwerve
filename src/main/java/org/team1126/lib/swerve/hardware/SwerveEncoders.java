@@ -23,7 +23,6 @@ import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.wpilibj.RobotBase;
 import java.util.List;
 import java.util.function.BiFunction;
-
 import org.team1126.lib.swerve.SwerveAPI;
 import org.team1126.lib.swerve.config.SwerveConfig;
 import org.team1126.lib.swerve.hardware.SwerveEncoders.SwerveEncoder.HookStatus;

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.DriverStation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.function.Consumer;
-
 import org.team1126.lib.util.Mutable;
 
 //

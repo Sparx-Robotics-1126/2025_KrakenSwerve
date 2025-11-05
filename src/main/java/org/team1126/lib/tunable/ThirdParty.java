@@ -15,7 +15,6 @@ import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.filter.Debouncer.DebounceType;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import java.util.function.IntConsumer;
-
 import org.team1126.lib.tunable.Tunables.TunableHandler;
 import org.team1126.lib.util.vendors.RevUtil;
 

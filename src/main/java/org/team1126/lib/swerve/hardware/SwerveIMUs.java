@@ -18,7 +18,6 @@ import edu.wpi.first.wpilibj.SPI;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
-
 import org.team1126.lib.swerve.SwerveAPI;
 import org.team1126.lib.swerve.config.SwerveConfig;
 import org.team1126.lib.swerve.hardware.SwerveIMUs.SwerveIMU.IMUSimHook;

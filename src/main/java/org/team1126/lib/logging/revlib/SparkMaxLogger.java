@@ -1,11 +1,10 @@
 package org.team1126.lib.logging.revlib;
 
-import org.team1126.lib.logging.revlib.structs.SparkBaseStruct;
-
 import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.epilogue.CustomLoggerFor;
 import edu.wpi.first.epilogue.logging.ClassSpecificLogger;
 import edu.wpi.first.epilogue.logging.EpilogueBackend;
+import org.team1126.lib.logging.revlib.structs.SparkBaseStruct;
 
 @CustomLoggerFor(SparkMax.class)
 public class SparkMaxLogger extends ClassSpecificLogger<SparkMax> {

@@ -2,7 +2,6 @@ package org.team1126.lib.swerve.hardware;
 
 import com.ctre.phoenix6.BaseStatusSignal;
 import java.util.List;
-
 import org.team1126.lib.swerve.SwerveAPI;
 
 interface SwerveBaseHardware extends AutoCloseable {

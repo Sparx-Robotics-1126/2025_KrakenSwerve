@@ -6,7 +6,6 @@ import edu.wpi.first.math.Vector;
 import edu.wpi.first.math.numbers.N3;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.team1126.lib.swerve.SwerveAPI;
 import org.team1126.lib.swerve.hardware.SwerveIMUs;
 import org.team1126.lib.swerve.hardware.SwerveIMUs.SwerveIMU;

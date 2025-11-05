@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
-
 import org.team1126.lib.logging.EpilogueProxy;
 
 @CustomLoggerFor(SwerveAPI.class)

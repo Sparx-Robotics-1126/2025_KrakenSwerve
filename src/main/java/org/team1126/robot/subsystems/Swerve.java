@@ -10,7 +10,6 @@ import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
-
 import org.team1126.lib.logging.LoggedRobot;
 import org.team1126.lib.math.Math2;
 import org.team1126.lib.math.PAPFController;
@@ -89,8 +88,11 @@ public final class Swerve extends GRRSubsystem {
     private final PAPFController apf;
     private final ProfiledPIDController angularPID;
 
+    // private final Vision vision;
+
     public Swerve() {
         api = new SwerveAPI(config);
+        // vision = new Vision(Constants.CAMERAS);
         apf = new PAPFController(6.0, 0.25, 0.01, true, new Obstacle[0]);
         angularPID = new ProfiledPIDController(8.0, 0.0, 0.0, new Constraints(10.0, 26.0));
         angularPID.enableContinuousInput(-Math.PI, Math.PI);
@@ -105,6 +107,11 @@ public final class Swerve extends GRRSubsystem {
     @Override
     public void periodic() {
         api.refresh();
+
+        // Apply vision estimates to the pose estimator.
+        // var measurements = vision.getUnreadResults(state.poseHistory, state.odometryPose, state.velocity);
+        // seesAprilTag = measurements.length > 0;
+        // api.addVisionMeasurements(measurements);
     }
 
     /**

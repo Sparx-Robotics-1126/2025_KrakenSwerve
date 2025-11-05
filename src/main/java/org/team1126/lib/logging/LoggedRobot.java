@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.IterativeRobotBase;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.Threads;
 import java.util.function.Consumer;
-
 import org.team1126.lib.logging.shim.NTEpilogueBackend;
 import org.team1126.lib.tunable.Tunables;
 import org.team1126.lib.tunable.Tunables.Tunable;

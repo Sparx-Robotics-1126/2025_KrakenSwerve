@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
 import org.team1126.lib.math.Math2;
 import org.team1126.lib.swerve.config.SwerveConfig;
 import org.team1126.lib.swerve.config.SwerveModuleConfig;

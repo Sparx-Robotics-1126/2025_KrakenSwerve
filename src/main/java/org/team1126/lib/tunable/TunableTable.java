@@ -5,7 +5,6 @@ import edu.wpi.first.util.function.FloatConsumer;
 import java.util.function.Consumer;
 import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
-
 import org.team1126.lib.tunable.Tunables.Tunable;
 import org.team1126.lib.tunable.Tunables.TunableBoolean;
 import org.team1126.lib.tunable.Tunables.TunableDouble;

@@ -1,11 +1,10 @@
 package org.team1126.lib.math.geometry;
 
-import org.team1126.lib.math.FieldFlip;
-import org.team1126.lib.tunable.TunableTable;
-
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import org.team1126.lib.math.FieldFlip;
+import org.team1126.lib.tunable.TunableTable;
 
 /**
  * A container for {@link Pose2d} objects that enables live tuning via

@@ -7,13 +7,10 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.Command;
-
 import java.util.List;
-import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import org.team1126.lib.logging.LoggedRobot;
@@ -48,7 +45,7 @@ public final class Swerve extends GRRSubsystem {
     private static final double OFFSET = Units.inchesToMeters(12.5);
 
     private static final TunableTable tunables = Tunables.getNested("swerve");
- private static final TunableDouble turboSpin = tunables.value("turboSpin", 8.0);
+    private static final TunableDouble turboSpin = tunables.value("turboSpin", 8.0);
     private static final TunableDouble facingReefTol = tunables.value("facingReefTol", 1.0);
     private static final TunableDouble dangerDistance = tunables.value("dangerDistance", 0.75);
     private static final TunableDouble happyDistance = tunables.value("happyDistance", 3.25);
@@ -97,11 +94,11 @@ public final class Swerve extends GRRSubsystem {
         .setModules(frontLeft, frontRight, backLeft, backRight);
 
     @NotLogged
-    private  SwerveState state;
+    private SwerveState state;
 
     private final SwerveAPI api;
-    private  PAPFController apf;
-    private  ProfiledPIDController angularPID;
+    private PAPFController apf;
+    private ProfiledPIDController angularPID;
 
     private final Vision vision;
 
@@ -140,32 +137,32 @@ public final class Swerve extends GRRSubsystem {
             seesAprilTag = false;
         }
 
-// Translation2d reefCenter = Field.reef.get();
-//         Translation2d reefTranslation = state.translation.minus(reefCenter);
-//         Rotation2d reefAngle = new Rotation2d(
-//             Math.floor(
-//                     reefCenter.minus(state.translation).getAngle().plus(new Rotation2d(Math2.SIXTH_PI)).getRadians()
-//                         / Math2.THIRD_PI
-//                 )
-//                 * Math2.THIRD_PI
-//         );
-//    // Save if the reef angle has changed.
-//    changedReference = !Math2.isNear(reefReference.getRotation(), reefAngle, 1e-6);
+        // Translation2d reefCenter = Field.reef.get();
+        //         Translation2d reefTranslation = state.translation.minus(reefCenter);
+        //         Rotation2d reefAngle = new Rotation2d(
+        //             Math.floor(
+        //                     reefCenter.minus(state.translation).getAngle().plus(new Rotation2d(Math2.SIXTH_PI)).getRadians()
+        //                         / Math2.THIRD_PI
+        //                 )
+        //                 * Math2.THIRD_PI
+        //         );
+        //    // Save if the reef angle has changed.
+        //    changedReference = !Math2.isNear(reefReference.getRotation(), reefAngle, 1e-6);
 
-//    // Save the current alliance's reef location, and the rotation
-//    // to the reef wall relevant to the robot's position.
-//    reefReference = new Pose2d(reefCenter, reefAngle);
+        //    // Save the current alliance's reef location, and the rotation
+        //    // to the reef wall relevant to the robot's position.
+        //    reefReference = new Pose2d(reefCenter, reefAngle);
 
-//    // If the robot is rotated to face the reef, within an arbitrary tolerance.
-//    facingReef = Math2.isNear(reefAngle, state.rotation, facingReefTol.get());
+        //    // If the robot is rotated to face the reef, within an arbitrary tolerance.
+        //    facingReef = Math2.isNear(reefAngle, state.rotation, facingReefTol.get());
 
-//    // Calculate the distance from the robot's center to the nearest reef wall face.
-//    wallDistance = Math.max(
-//        0.0,
-//        reefAngle.rotateBy(Rotation2d.k180deg).minus(reefTranslation.getAngle()).getCos()
-//                * reefTranslation.getNorm()
-//            - Field.reefWallDist
-//    );
+        //    // Calculate the distance from the robot's center to the nearest reef wall face.
+        //    wallDistance = Math.max(
+        //        0.0,
+        //        reefAngle.rotateBy(Rotation2d.k180deg).minus(reefTranslation.getAngle()).getCos()
+        //                * reefTranslation.getNorm()
+        //            - Field.reefWallDist
+        //    );
     }
 
     /**
@@ -188,12 +185,12 @@ public final class Swerve extends GRRSubsystem {
      */
     public Command resetPose(Supplier<Pose2d> pose) {
         return commandBuilder("Swerve.resetPose()")
-        .onInitialize(() -> {
-            api.resetPose(pose.get());
-            if (vision != null) vision.reset();
-        })
-        .isFinished(true)
-        .ignoringDisable(true);
+            .onInitialize(() -> {
+                api.resetPose(pose.get());
+                if (vision != null) vision.reset();
+            })
+            .isFinished(true)
+            .ignoringDisable(true);
     }
 
     /**
@@ -215,7 +212,6 @@ public final class Swerve extends GRRSubsystem {
         );
     }
 
-
     /**
      * SPIN FAST RAHHHHHHH
      * @param x The X value from the driver's joystick.
@@ -232,7 +228,7 @@ public final class Swerve extends GRRSubsystem {
             .finallyDo(() -> api.config.driverAngularVel = configured.value);
     }
 
-/**
+    /**
      * Drives the robot using driver input while facing the reef,
      * and "pushing" the robot to center on the selected pipe.
      * @param x The X value from the driver's joystick.
@@ -301,7 +297,6 @@ public final class Swerve extends GRRSubsystem {
     //         })
     //         .onEnd(() -> reefAssist.running = false);
     // }
-
 
     /**
      * Drives the robot to a target position using the P-APF, until the
@@ -389,6 +384,7 @@ public final class Swerve extends GRRSubsystem {
     public boolean changedReference() {
         return changedReference;
     }
+
     /**
      * Returns true if the elevator and goose neck are safe
      * to move, based on the robot's position on the field.
@@ -396,7 +392,6 @@ public final class Swerve extends GRRSubsystem {
     public boolean wildlifeConservationProgram() {
         return wallDistance > dangerDistance.get();
     }
-    
 
     private Pose2d generateReefLocation(double xOffset, Rotation2d side, boolean left) {
         return new Pose2d(
@@ -406,6 +401,7 @@ public final class Swerve extends GRRSubsystem {
             side
         );
     }
+
     @Logged
     public final class ReefAssistData {
 

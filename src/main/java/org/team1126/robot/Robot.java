@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
-
 import org.team1126.lib.logging.LoggedRobot;
 import org.team1126.lib.logging.Profiler;
 import org.team1126.lib.util.DisableWatchdog;
@@ -23,7 +22,7 @@ public final class Robot extends LoggedRobot {
     private final CommandScheduler scheduler = CommandScheduler.getInstance();
 
     public final Swerve swerve;
- public final Lights lights;
+    public final Lights lights;
 
     public final Routines routines;
     public final Autos autos;
@@ -58,9 +57,7 @@ public final class Robot extends LoggedRobot {
         if (lights.isAvailable()) {
             routines.lightsPreMatch(autos::defaultSelected).schedule();
 
-            RobotModeTriggers.disabled().whileTrue(
-                routines.lightsPreMatch(autos::defaultSelected)
-            );
+            RobotModeTriggers.disabled().whileTrue(routines.lightsPreMatch(autos::defaultSelected));
         }
 
         // lights.sides.setDefaultCommand(lights.sides.levelSelection(selection));

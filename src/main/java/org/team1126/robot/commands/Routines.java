@@ -2,9 +2,8 @@ package org.team1126.robot.commands;
 
 import static edu.wpi.first.wpilibj2.command.Commands.*;
 
-import java.util.function.BooleanSupplier;
-
 import edu.wpi.first.wpilibj2.command.Command;
+import java.util.function.BooleanSupplier;
 import org.team1126.robot.Robot;
 import org.team1126.robot.subsystems.Lights;
 import org.team1126.robot.subsystems.Swerve;
@@ -34,8 +33,7 @@ public final class Routines {
         ).withName("Routines.example()");
     }
 
-
-     /**
+    /**
      * Displays the pre-match animation.
      * @param defaultAutoSelected If the default auto is selected.
      */

@@ -52,7 +52,7 @@ public final class Autos {
         );
     }
 
-     /**
+    /**
      * Returns {@code true} when the default auto is selected.
      */
     public boolean defaultSelected() {

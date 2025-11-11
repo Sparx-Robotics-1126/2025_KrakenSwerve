@@ -51,4 +51,11 @@ public final class Autos {
             swerve.stop(false)
         );
     }
+
+     /**
+     * Returns {@code true} when the default auto is selected.
+     */
+    public boolean defaultSelected() {
+        return chooser.defaultSelected().getAsBoolean();
+    }
 }

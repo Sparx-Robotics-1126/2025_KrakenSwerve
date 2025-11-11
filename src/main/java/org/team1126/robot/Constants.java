@@ -13,6 +13,9 @@ public final class Constants {
 
     public static final double VOLTAGE = 12.0;
 
+    // Set to false to disable all vision-related code paths at runtime
+    public static final boolean ENABLE_VISION = true;
+
     // Controller ports
     public static final int DRIVER = 0;
     public static final int CO_DRIVER = 1;
@@ -59,4 +62,9 @@ public final class Constants {
             new Rotation3d(0.0, Math.toRadians(-5.0), Math.toRadians(-45.0))
         )
     };
+
+    public static final class RioIO {
+
+        public static final int LIGHTS = 9;
+    }
 }

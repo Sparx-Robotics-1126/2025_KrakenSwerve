@@ -28,7 +28,7 @@ public final class Robot extends LoggedRobot {
     public final Autos autos;
 
     private final CommandXboxController driver;
-    private final CommandXboxController coDriver;
+    // private final CommandXboxController coDriver;
 
     public Robot() {
         // Initialize subsystems
@@ -41,7 +41,7 @@ public final class Robot extends LoggedRobot {
 
         // Initialize controllers
         driver = new CommandXboxController(Constants.DRIVER);
-        coDriver = new CommandXboxController(Constants.CO_DRIVER);
+        // coDriver = new CommandXboxController(Constants.CO_DRIVER);
 
         // Set default commands
         swerve.setDefaultCommand(swerve.drive(this::driverX, this::driverY, this::driverAngular));
@@ -52,7 +52,7 @@ public final class Robot extends LoggedRobot {
         driver.leftStick().whileTrue(swerve.turboSpin(this::driverX, this::driverY, this::driverAngular));
 
         // Co-driver bindings
-        coDriver.a().onTrue(none());
+        // coDriver.a().onTrue(none());
         // Setup lights only if the LED controller initialized correctly
         if (lights.isAvailable()) {
             routines.lightsPreMatch(autos::defaultSelected).schedule();

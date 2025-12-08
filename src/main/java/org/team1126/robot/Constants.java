@@ -14,7 +14,7 @@ public final class Constants {
     public static final double VOLTAGE = 12.0;
 
     // Set to false to disable all vision-related code paths at runtime
-    public static final boolean ENABLE_VISION = true;
+    public static final boolean ENABLE_VISION = false;
 
     // Controller ports
     public static final int DRIVER = 0;

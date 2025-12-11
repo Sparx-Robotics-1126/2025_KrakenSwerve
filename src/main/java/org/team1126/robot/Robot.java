@@ -28,6 +28,7 @@ public final class Robot extends LoggedRobot {
     public final Autos autos;
 
     private final CommandXboxController driver;
+
     // private final CommandXboxController coDriver;
 
     public Robot() {
@@ -49,7 +50,7 @@ public final class Robot extends LoggedRobot {
         // Driver bindings
         driver.a().onTrue(none());
         driver.povLeft().onTrue(swerve.tareRotation());
-        driver.leftStick().whileTrue(swerve.turboSpin(this::driverX, this::driverY, this::driverAngular));
+        // driver.leftStick().whileTrue(swerve.turboSpin(this::driverY, this::driverX, this::driverAngular));
 
         // Co-driver bindings
         // coDriver.a().onTrue(none());

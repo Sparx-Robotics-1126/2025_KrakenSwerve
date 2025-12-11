@@ -36,7 +36,7 @@ import org.team1126.lib.util.Sleep;
 import org.team1126.robot.Robot;
 
 /**
-* An implementation of a swerve drivetrain, with support for various hardware configurations.
+ * An implementation of a swerve drivetrain, with support for various hardware configurations.
  *
  * <p>Includes features such as high frequency odometry, a custom ratelimiter to improve driver
  * control while also reducing wheel scrub, and built-in support for tuning the drivetrain's

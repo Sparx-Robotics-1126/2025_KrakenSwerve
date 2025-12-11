@@ -34,7 +34,6 @@ import org.team1126.lib.util.command.GRRSubsystem;
 import org.team1126.robot.Constants;
 import org.team1126.robot.Constants.RobotMap;
 import org.team1126.robot.util.Field;
-import org.team1126.robot.util.Vision;
 
 /**
  * The robot's swerve drivetrain.
@@ -55,28 +54,28 @@ public final class Swerve extends GRRSubsystem {
         .setLocation(OFFSET, OFFSET)
         .setMoveMotor(SwerveMotors.talonFX(RobotMap.FL_MOVE, true))
         .setTurnMotor(SwerveMotors.talonFX(RobotMap.FL_TURN, true))
-        .setEncoder(SwerveEncoders.cancoder(RobotMap.FL_ENCODER, 0.0, false));
+        .setEncoder(SwerveEncoders.cancoder(RobotMap.FL_ENCODER, 0.009521, false));
 
     private final SwerveModuleConfig frontRight = new SwerveModuleConfig()
         .setName("frontRight")
         .setLocation(OFFSET, -OFFSET)
         .setMoveMotor(SwerveMotors.talonFX(RobotMap.FR_MOVE, true))
         .setTurnMotor(SwerveMotors.talonFX(RobotMap.FR_TURN, true))
-        .setEncoder(SwerveEncoders.cancoder(RobotMap.FR_ENCODER, 0.0, false));
+        .setEncoder(SwerveEncoders.cancoder(RobotMap.FR_ENCODER, -0.015137, false));
 
     private final SwerveModuleConfig backLeft = new SwerveModuleConfig()
         .setName("backLeft")
         .setLocation(-OFFSET, OFFSET)
         .setMoveMotor(SwerveMotors.talonFX(RobotMap.BL_MOVE, true))
         .setTurnMotor(SwerveMotors.talonFX(RobotMap.BL_TURN, true))
-        .setEncoder(SwerveEncoders.cancoder(RobotMap.BL_ENCODER, 0.0, false));
+        .setEncoder(SwerveEncoders.cancoder(RobotMap.BL_ENCODER, -0.000732, false));
 
     private final SwerveModuleConfig backRight = new SwerveModuleConfig()
         .setName("backRight")
         .setLocation(-OFFSET, -OFFSET)
         .setMoveMotor(SwerveMotors.talonFX(RobotMap.BR_MOVE, true))
         .setTurnMotor(SwerveMotors.talonFX(RobotMap.BR_TURN, true))
-        .setEncoder(SwerveEncoders.cancoder(RobotMap.BR_ENCODER, 0.0, false));
+        .setEncoder(SwerveEncoders.cancoder(RobotMap.BR_ENCODER, 0.004150, false));
 
     private final SwerveConfig config = new SwerveConfig()
         .setTimings(LoggedRobot.DEFAULT_PERIOD, 0.004, 0.02, 0.02)
@@ -100,7 +99,7 @@ public final class Swerve extends GRRSubsystem {
     private PAPFController apf;
     private ProfiledPIDController angularPID;
 
-    private final Vision vision;
+    // private final Vision vision;
 
     // private final ReefAssistData reefAssist = new ReefAssistData();
 
@@ -112,7 +111,7 @@ public final class Swerve extends GRRSubsystem {
 
     public Swerve() {
         api = new SwerveAPI(config);
-        vision = Constants.ENABLE_VISION ? new Vision(Constants.CAMERAS) : null;
+        // vision = Constants.ENABLE_VISION ? new Vision(Constants.CAMERAS) : null;
         apf = new PAPFController(6.0, 0.25, 0.01, true, new Obstacle[0]);
         angularPID = new ProfiledPIDController(8.0, 0.0, 0.0, new Constraints(10.0, 26.0));
         angularPID.enableContinuousInput(-Math.PI, Math.PI);
@@ -129,13 +128,13 @@ public final class Swerve extends GRRSubsystem {
         api.refresh();
 
         // Apply vision estimates to the pose estimator if vision is enabled.
-        if (vision != null) {
-            var measurements = vision.getUnreadResults(state.poseHistory, state.odometryPose, state.velocity);
-            seesAprilTag = measurements.length > 0;
-            api.addVisionMeasurements(measurements);
-        } else {
-            seesAprilTag = false;
-        }
+        // if (vision != null) {
+        //     var measurements = vision.getUnreadResults(state.poseHistory, state.odometryPose, state.velocity);
+        //     seesAprilTag = measurements.length > 0;
+        //     api.addVisionMeasurements(measurements);
+        // } else {
+        //     seesAprilTag = false;
+        // }
 
         // Translation2d reefCenter = Field.reef.get();
         //         Translation2d reefTranslation = state.translation.minus(reefCenter);
@@ -172,8 +171,8 @@ public final class Swerve extends GRRSubsystem {
     public Command tareRotation() {
         return commandBuilder("Swerve.tareRotation()")
             .onInitialize(() -> {
-                api.tareRotation(Perspective.OPERATOR);
-                if (vision != null) vision.reset();
+                // api.tareRotation(Perspective.OPERATOR);
+                // if (vision != null) vision.reset();
             })
             .isFinished(true)
             .ignoringDisable(true);
@@ -187,7 +186,7 @@ public final class Swerve extends GRRSubsystem {
         return commandBuilder("Swerve.resetPose()")
             .onInitialize(() -> {
                 api.resetPose(pose.get());
-                if (vision != null) vision.reset();
+                // if (vision != null) vision.reset();
             })
             .isFinished(true)
             .ignoringDisable(true);

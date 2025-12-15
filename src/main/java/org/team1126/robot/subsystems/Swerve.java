@@ -41,7 +41,7 @@ import org.team1126.robot.util.Field;
 @Logged
 public final class Swerve extends GRRSubsystem {
 
-    private static final double OFFSET = Units.inchesToMeters(12.5);
+    private static final double OFFSET = Units.inchesToMeters(12.375);
 
     private static final TunableTable tunables = Tunables.getNested("swerve");
     private static final TunableDouble turboSpin = tunables.value("turboSpin", 8.0);
